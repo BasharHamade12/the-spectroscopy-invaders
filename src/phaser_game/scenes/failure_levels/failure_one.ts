@@ -1,3 +1,4 @@
+import * as Phaser from "phaser";
 import Defender from "../../game_objects/defender";
 import Field from "../../game_objects/field";
 import Hero from "../../game_objects/hero";
@@ -10,14 +11,14 @@ first_open: boolean;        // Indicates wheather the level has been opened befo
     constructor(){
         let instructions: string[] = ['failure', "move negation info", 'move observation info']
         super('failure one', 'a.b.0+a.c.0', 'a.(b.0+c.0)', 'Failure', instructions);
-        this.enemy = "enemy_failure"
+        this.enemy = "enemy_bingus";
         this.first_open = true;
     }
 
     preload(){
         super.preload();
         this.load.image('background_failure', 'assets/backgrounds/level_backgrounds/background_failure.png');
-        this.load.spritesheet('enemy_failure', 'assets/characters/enemy_failure.png', { frameWidth: 32, frameHeight: 48 });
+        // this.load.spritesheet('enemy_failure', 'assets/characters/enemy_failure.png', { frameWidth: 32, frameHeight: 48 });
     }
 
     create(){

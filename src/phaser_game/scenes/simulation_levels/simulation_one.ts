@@ -8,13 +8,13 @@ export default class simulationOne extends level{
     constructor(){
         let instructions: string[] = ['simulation', 'move conjunct info', "move negation info", 'move observation info']
         super('simulation one', 'a.(b.0+c.0)+a.a.(b.0+c.0)', 'a.(b.0+a.b.0)+a.(c.0+a.c.0)', 'Simulation', instructions);
-        this.enemy = "enemy_simulation"
+        this.enemy = "enemy_bingus";
     }
 
     preload(){
         super.preload();
         this.load.image('background_simulation', 'assets/backgrounds/level_backgrounds/background_simulation.png');
-        this.load.spritesheet('enemy_simulation', 'assets/characters/enemy_simulation.png', { frameWidth: 32, frameHeight: 48 });
+        // this.load.spritesheet('enemy_simulation', 'assets/characters/enemy_simulation.png', { frameWidth: 32, frameHeight: 48 });
     }
 
     create(){

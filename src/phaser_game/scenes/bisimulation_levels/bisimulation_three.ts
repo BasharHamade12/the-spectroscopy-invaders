@@ -8,13 +8,13 @@ export default class bisimulationThree extends level{
     constructor(){
         let instructions: string[] = ['bisimulation', 'move conjunct info', "move negation info", 'move observation info']
         super('bisimulation three', 'a.(a.b.0+a.c.0)', 'a.(a.b.0+a.(b.0+c.0)+a.c.0)', 'Bisimulation', instructions);
-        this.enemy = "enemy_bisimulation"
+        this.enemy = "enemy_bingus";
     }
 
     preload(){
         super.preload();
         this.load.image('background_bisimulation', 'assets/backgrounds/level_backgrounds/background_bisimulation.png');
-        this.load.spritesheet('enemy_bisimulation', 'assets/characters/enemy_bisimulation.png', { frameWidth: 32, frameHeight: 48 });
+        // this.load.spritesheet('enemy_bisimulation', 'assets/characters/enemy_bisimulation.png', { frameWidth: 32, frameHeight: 48 });
     }
 
     create(){

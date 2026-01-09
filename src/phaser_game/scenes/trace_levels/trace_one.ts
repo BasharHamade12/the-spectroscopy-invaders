@@ -1,3 +1,4 @@
+import * as Phaser from "phaser";
 import Defender from "../../game_objects/defender";
 import Field from "../../game_objects/field";
 import Hero from "../../game_objects/hero";
@@ -13,14 +14,14 @@ export default class traceOne extends levelTrace{
         // What instructions to display after clicking on info button
         let instructions: string[] = ['trace', 'move observation info']
         super('trace one', 'c.c.0+a.b.0', 'a.b.0+c.a.0', 'Trace', instructions);
-        this.enemy = "enemy_trace";
+        this.enemy = "enemy_bingus";
         this.first_open = true;
     }
 
     preload(){
         super.preload();
         this.load.image('background_trace', 'assets/backgrounds/level_backgrounds/background_trace.png');
-        this.load.spritesheet('enemy_trace', 'assets/characters/enemy_trace.png', { frameWidth: 32, frameHeight: 48 });
+        // // this.load.spritesheet('enemy_trace', 'assets/characters/enemy_trace.png', { frameWidth: 32, frameHeight: 48 });
         
     }
 

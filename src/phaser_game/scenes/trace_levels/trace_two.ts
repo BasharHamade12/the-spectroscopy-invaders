@@ -10,13 +10,13 @@ export default class traceTwo extends levelTrace{
     constructor(){
         let instructions: string[] = ['trace', 'move observation info']
         super('trace two', 'a.(a.0+a.(a.0+a.a.0))+a.(a.0+a.a.0)', 'a.a.0', 'Trace', instructions);
-        this.enemy = "enemy_trace"
+        this.enemy = "enemy_bingus";
     }
 
     preload(){
         super.preload();
         this.load.image('background_trace', 'assets/backgrounds/level_backgrounds/background_trace.png');
-        this.load.spritesheet('enemy_trace', 'assets/characters/enemy_trace.png', { frameWidth: 32, frameHeight: 48 });
+        // this.load.spritesheet('enemy_trace', 'assets/characters/enemy_trace.png', { frameWidth: 32, frameHeight: 48 });
 
     }
 

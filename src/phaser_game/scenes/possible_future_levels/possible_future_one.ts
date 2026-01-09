@@ -9,13 +9,13 @@ export default class possibleFutureOne extends level{
     constructor(){
         let instructions: string[] = ['possible-future', 'move conjunct info', "move negation info", 'move observation info']
         super('possible-future one', 'a.(c.0+d.0)', 'a.c.0+a.d.0', 'Possible-future', instructions);
-        this.enemy = "enemy_possible_future"
+        this.enemy = "enemy_bingus";
     }
 
     preload(){
         super.preload();
         this.load.image('background_possible_future', 'assets/backgrounds/level_backgrounds/background_possible_future.png');
-        this.load.spritesheet('enemy_possible_future', 'assets/characters/enemy_possible_future.png', { frameWidth: 32, frameHeight: 48 });
+        // this.load.spritesheet('enemy_possible_future', 'assets/characters/enemy_possible_future.png', { frameWidth: 32, frameHeight: 48 });
 
     }
 

@@ -1,3 +1,4 @@
+import * as Phaser from "phaser";
 import levelBasic from "../scenes/level_basic";
 import Enemy from "./enemy";
 import GameOver from "../events/game_over";
@@ -6,7 +7,7 @@ import Field from "./field";
 /**
  * A class that represents the hero (player) in the spectroscopy invaders
  */
-export default class Hero{
+export default class Hero {
 
     sprite: Phaser.GameObjects.Sprite;          // Phaseer sprite representing the hero
     position: Field;                            // Current hero position 
@@ -17,7 +18,7 @@ export default class Hero{
     current_conjunction: number;                // Indicated which conjunction was currently played (0 - if no conjunction played, 1 if first conjunction, 2 if second)
     last_move: string;                          // What was the last move executed by the player
     conjunct_challenge_colors: number[];        // Colors to use for conjunct challenge positions marking
-    
+
     /**
      * 
      * @param x x-position
@@ -25,7 +26,7 @@ export default class Hero{
      * @param hero_field field where hero stays
      * @param game_scene 
      */
-    constructor(x: number, y: number, hero_field: Field, game_scene: levelBasic){
+    constructor(x: number, y: number, hero_field: Field, game_scene: levelBasic) {
         this.game_scene = game_scene;
         this.position = hero_field;
         this.conjunction_played = false;
@@ -33,7 +34,7 @@ export default class Hero{
         this.conjunct_challenge_position = [];
 
         // None move played yet
-        this.last_move = "None"; 
+        this.last_move = "None";
 
         // Three different colors: red, orange and yellow in hexa numbers
         this.conjunct_challenge_colors = [0xFF0000, 0xFF6800, 0xFFFB00];
@@ -41,6 +42,8 @@ export default class Hero{
         // Create hero sprite and add to corresponding phaser scene
         let sprite: Phaser.GameObjects.Sprite = this.game_scene.add.sprite(x, y, "hero");
         this.sprite = sprite;
+        this.sprite.displayHeight = 48;
+        this.sprite.scaleX = this.sprite.scaleY;
 
         // Create game_over instance
         this.game_over = new GameOver(this.game_scene);
@@ -50,9 +53,9 @@ export default class Hero{
      * Performs observation activity
      * @param field 
      */
-    observationActivity(field: Field){
+    observationActivity(field: Field) {
         // Check if there is a transition between current hero Field and clicked Field
-        if(this.game_scene.connected[this.position.field_number][field.field_number]){
+        if (this.game_scene.connected[this.position.field_number][field.field_number]) {
 
             // Get the observation 
             let observation: string = this.game_scene.observations[this.position.field_number][field.field_number];
@@ -81,9 +84,9 @@ export default class Hero{
      * Performs negation activity
      * @returns 
      */
-    negationActivity(){
+    negationActivity() {
         // Allow only if exactly one enemy
-        if(this.game_scene.defender.enemies.length > 1 ){
+        if (this.game_scene.defender.enemies.length > 1) {
             return;
         }
         this.last_move = "-";
@@ -113,7 +116,7 @@ export default class Hero{
         enemy.position = this.position;
         this.position = enemy_position;
         this.game_scene.defender.updateEnemiesPositions();
-        
+
         // Add the negation move to spectroscopy
         this.game_scene.spectroscopy.player.addAttackerMove("-");
         this.game_over.gameOver("-");
@@ -123,9 +126,9 @@ export default class Hero{
      * Performs conjunct challenge activity
      * @returns 
      */
-    conjunctChallengeActivity(){
+    conjunctChallengeActivity() {
         // Allow only if more than one current enemy
-        if(this.last_move == "^"  || this.game_scene.defender.enemies.length <= 1){
+        if (this.last_move == "^" || this.game_scene.defender.enemies.length <= 1) {
             return;
         }
         this.last_move = "^";
@@ -138,12 +141,12 @@ export default class Hero{
         this.game_scene.spectroscopy.player.addAttackerMove("^");
 
         // Change colors
-        for(let enemy_position of this.game_scene.defender.enemies_positions){
+        for (let enemy_position of this.game_scene.defender.enemies_positions) {
             enemy_position.sprite.setTint(conjunct_color);
         }
 
         // Change visibility
-        for(let enemy of this.game_scene.defender.enemies){
+        for (let enemy of this.game_scene.defender.enemies) {
             enemy.sprite.setAlpha(0.3);
         }
 
@@ -156,11 +159,11 @@ export default class Hero{
 
         // Create a list of frozen enemies and add it to the front of the defender frozen enemies FCLS list
         let frozen_enemies = []
-        for(let enemy of this.game_scene.defender.enemies){
+        for (let enemy of this.game_scene.defender.enemies) {
             frozen_enemies.push(enemy);
             enemy.conjunct_challenge_positions.unshift(enemy.position);
         }
-        
+
         this.game_scene.defender.frozen_enemies.unshift(frozen_enemies);
         this.chooseNextEnemy();
         this.game_over.gameOver("^");
@@ -169,7 +172,7 @@ export default class Hero{
     /**
      * Chooses next enemy to defeat after a conjunct challenge
      */
-    chooseNextEnemy(){
+    chooseNextEnemy() {
         this.moveHerotoConjunctChallengePosition();
         let frozen_enemies = this.game_scene.defender.frozen_enemies[0];
         let current_enemy = frozen_enemies.shift();
@@ -183,7 +186,7 @@ export default class Hero{
     /**
      * Move hero back to conjunct challenge 
      */
-    moveHerotoConjunctChallengePosition(){
+    moveHerotoConjunctChallengePosition() {
         let conjunct_challenge_position = this.conjunct_challenge_position[0];
         this.game_scene.tweens.add({
             targets: this.sprite,

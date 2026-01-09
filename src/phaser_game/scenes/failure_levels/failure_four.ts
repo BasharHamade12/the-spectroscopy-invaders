@@ -9,13 +9,13 @@ export default class failureFour extends level{
     constructor(){
         let instructions: string[] = ['failure', 'move conjunct info', "move negation info", 'move observation info']
         super('failure four', 'a.b.0', 'a.b.e.0+a.(b.f.0+c.0)', 'Failure', instructions);
-        this.enemy = "enemy_failure"
+        this.enemy = "enemy_bingus";
     }
 
     preload(){
         super.preload();
         this.load.image('background_failure', 'assets/backgrounds/level_backgrounds/background_failure.png');
-        this.load.spritesheet('enemy_failure', 'assets/characters/enemy_failure.png', { frameWidth: 32, frameHeight: 48 });
+        // this.load.spritesheet('enemy_failure', 'assets/characters/enemy_failure.png', { frameWidth: 32, frameHeight: 48 });
 
     }
 

@@ -1,3 +1,4 @@
+import * as Phaser from "phaser";
 import levelBasic from "../scenes/level_basic";
 
 /**

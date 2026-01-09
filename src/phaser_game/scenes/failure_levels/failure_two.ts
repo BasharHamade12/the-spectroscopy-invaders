@@ -9,13 +9,13 @@ export default class failureTwo extends level{
     constructor(){
         let instructions: string[] = ['failure', "move negation info", 'move observation info']
         super('failure two', 'a.(a.c.0+b.b.0)', 'a.b.b.0+a.a.(b.b.0+c.0)', 'Failure', instructions);
-        this.enemy = "enemy_failure"
+        this.enemy = "enemy_bingus";
     }
 
     preload(){
         super.preload();
         this.load.image('background_failure', 'assets/backgrounds/level_backgrounds/background_failure.png');
-        this.load.spritesheet('enemy_failure', 'assets/characters/enemy_failure.png', { frameWidth: 32, frameHeight: 48 });
+        // this.load.spritesheet('enemy_failure', 'assets/characters/enemy_failure.png', { frameWidth: 32, frameHeight: 48 });
 
     }
 

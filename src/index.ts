@@ -1,4 +1,4 @@
-import Phaser from 'phaser';
+import * as Phaser from 'phaser';
 import config from './config';
 import mainMenu from './phaser_game/scenes/main_menu'
 import traceOne from './phaser_game/scenes/trace_levels/trace_one'
@@ -27,11 +27,11 @@ import credits from './phaser_game/scenes/credits';
 new Phaser.Game(
   Object.assign(config, {
     scene: [mainMenu, credits,
-            traceOne, traceTwo, traceThree, traceFour, 
-            failureOne, failureTwo, failureThree, failureFour, 
-            possibleFutureOne, possibleFutureTwo, possibleFutureThree, possibleFutureFour, 
-            simulationOne, simulationTwo, simulationThree, simulationFour, 
-            bisimulationOne, bisimulationTwo, bisimulationThree, bisimulationFour]
+      traceOne, traceTwo, traceThree, traceFour,
+      failureOne, failureTwo, failureThree, failureFour,
+      possibleFutureOne, possibleFutureTwo, possibleFutureThree, possibleFutureFour,
+      simulationOne, simulationTwo, simulationThree, simulationFour,
+      bisimulationOne, bisimulationTwo, bisimulationThree, bisimulationFour]
   })
 );
 

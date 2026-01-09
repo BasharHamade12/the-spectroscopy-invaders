@@ -8,13 +8,13 @@ export default class possibleFutureThree extends level{
     constructor(){
         let instructions: string[] = ['possible-future', 'move conjunct info', "move negation info", 'move observation info']
         super('possible-future three', 'a.(b.c.0+b.d.0)', 'a.b.c.0+a.b.d.0', 'Possible-future', instructions);
-        this.enemy = "enemy_possible_future"; 
+        this.enemy = "enemy_bingus"; 
     }
 
     preload(){
         super.preload();
         this.load.image('background_possible_future', 'assets/backgrounds/level_backgrounds/background_possible_future.png');
-        this.load.spritesheet('enemy_possible_future', 'assets/characters/enemy_possible_future.png', { frameWidth: 32, frameHeight: 48 });
+        // this.load.spritesheet('enemy_possible_future', 'assets/characters/enemy_possible_future.png', { frameWidth: 32, frameHeight: 48 });
     }
 
     create(){
